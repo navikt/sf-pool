@@ -15,3 +15,10 @@ package.xml
 
 # LWC Jest
 **/__tests__/**
+
+force-app/main/default/objects/ScratchOrgInfo/**
+!force-app/main/default/objects/ScratchOrgInfo/ScratchOrgInfo.object-meta.xml
+!force-app/main/default/objects/ScratchOrgInfo/recordTypes/
+!force-app/main/default/objects/ScratchOrgInfo/recordTypes/*.recordType-meta.xml
+!force-app/main/default/objects/ScratchOrgInfo/fields/
+!force-app/main/default/objects/ScratchOrgInfo/fields/*__c.field-meta.xml
