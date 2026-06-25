@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pool_Claim_Token_Validation</fullName>
+    <active>true</active>
+    <description
+  >Rule to ensure that only one user may fetch a scratch org from the pool</description>
+    <errorConditionFormula>AND (
+  RecordType.DeveloperName = &apos;Scratch_pool_org&apos;,
+  ISCHANGED( Pool_claim_token__c ),
+  ISPICKVAL(Pool_allocation_status__c , &apos;assigned&apos;),
+  OR (
+    ISBLANK( Pool_claim_token__c ),
+    NOT ( ISBLANK( PRIORVALUE( Pool_claim_token__c ) ) )
+  )
+)</errorConditionFormula>
+    <errorMessage
+  >Pool already claimed. When set the Pool Claim Token cannot be changed to a new token, only removed.</errorMessage>
+</ValidationRule>

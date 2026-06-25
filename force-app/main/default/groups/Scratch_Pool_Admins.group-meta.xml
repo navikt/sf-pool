@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Group xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>Group containing scratch pool admin Users</description>
+    <doesIncludeBosses>false</doesIncludeBosses>
+    <name>Scratch Pool Admins</name>
+</Group>

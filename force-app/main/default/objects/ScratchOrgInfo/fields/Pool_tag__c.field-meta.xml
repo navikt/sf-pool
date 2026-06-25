@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Pool_tag__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description
+  >Name of the pool a scratch org belongs to. If blank the scratch org do not belong to a pool.</description>
+    <externalId>true</externalId>
+    <inlineHelpText
+  >Name of the pool a scratch org belongs to. If blank the scratch org do not belong to a pool.</inlineHelpText>
+    <label>Pool tag</label>
+    <length>255</length>
+    <required>false</required>
+    <securityClassification>Public</securityClassification>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

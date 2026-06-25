@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sfdx_Auth_Url__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description
+  >The Sfdx auth url provided to this org upon creation. Used when claiming org and then removed.</description>
+    <inlineHelpText
+  >The Sfdx auth url provided to this org upon creation. Used when claiming org and then removed.</inlineHelpText>
+    <label>SFDX Auth Url</label>
+    <length>32768</length>
+    <securityClassification>Confidential</securityClassification>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

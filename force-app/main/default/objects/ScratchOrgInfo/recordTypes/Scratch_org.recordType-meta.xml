@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scratch_org</fullName>
+    <active>true</active>
+    <description>For scratch orgs not part of any pool</description>
+    <label>Scratch org</label>
+    <picklistValues>
+        <picklist>Pool_allocation_status__c</picklist>
+        <values>
+            <fullName>assigned</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>available</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>failed</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>in_progress</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>under_update</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
