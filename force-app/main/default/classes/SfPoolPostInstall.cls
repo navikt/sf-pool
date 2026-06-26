@@ -1,11 +1,9 @@
 public with sharing class SfPoolPostInstall {
-    private SfPoolGroupHelper groupHelper;
-
-    private SfPoolPostInstall() {
+    public static void run() {
         runPostInstall();
     }
 
-    private boolean runPostInstall() {
+    private static boolean runPostInstall() {
         List<GroupMember> groupMembersToInsert = new List<GroupMember>();
         groupMembersToInsert.add(
             createGroupMember(
@@ -27,7 +25,9 @@ public with sharing class SfPoolPostInstall {
         return true;
     }
 
-    private GroupMember createGroupMember(String publicGroupDeveloperName) {
+    private static GroupMember createGroupMember(
+        String publicGroupDeveloperName
+    ) {
         Id scratchPoolGroupId = SfPoolGroupHelper.getGroupIdByDeveloperName(
             SfPoolGroupHelper.SCRATCH_POOL_PUBLIC_GROUP_DEVELOPER_NAME
         );
