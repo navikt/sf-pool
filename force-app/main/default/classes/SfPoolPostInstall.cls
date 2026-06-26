@@ -1,4 +1,10 @@
+/**
+ * Performs package setup that cannot be represented as static metadata.
+ */
 public with sharing class SfPoolPostInstall {
+    /**
+     * Adds CI, Users, and Admins public groups as members of Scratch_Pool.
+     */
     public static void run() {
         runPostInstall();
     }
