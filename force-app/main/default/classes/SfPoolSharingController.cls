@@ -54,6 +54,31 @@ public with sharing class SfPoolSharingController {
         return ctrl.shareLogs;
     }
 
+    @InvocableMethod(
+        label='Recalculate Scratch Org Sharing'
+        description='Recalculates manual sharing for pooled ScratchOrgInfo records.'
+        category='Scratch Org Pool'
+    )
+    public static void recalculateSharingFromFlow(
+        List<RecalculateSharingRequest> requests
+    ) {
+        List<Id> scratchOrgInfoIds = new List<Id>();
+
+        if (requests == null || requests.isEmpty()) {
+            return;
+        }
+
+        for (RecalculateSharingRequest request : requests) {
+            if (request != null && request.scratchOrgInfoId != null) {
+                scratchOrgInfoIds.add(request.scratchOrgInfoId);
+            }
+        }
+
+        if (!scratchOrgInfoIds.isEmpty()) {
+            recalculateSharing(scratchOrgInfoIds);
+        }
+    }
+
     private void loadScratchOrgInfos() {
         if (this.scratchOrgInfoPoolRecordTypeId == null) {
             System.debug(
@@ -235,6 +260,15 @@ public with sharing class SfPoolSharingController {
         if (!sharesToDelete.isEmpty()) {
             delete sharesToDelete;
         }
+    }
+
+    public class RecalculateSharingRequest {
+        @InvocableVariable(
+            label='Scratch Org Info ID'
+            description='ScratchOrgInfo record ID to recalculate sharing for.'
+            required=true
+        )
+        public Id scratchOrgInfoId;
     }
 
     /**

@@ -189,6 +189,54 @@ private with sharing class SfPoolSharingControllerTest {
         );
     }
 
+    @IsTest
+    private static void recalculateFromFlowCreatesShares() {
+        ScratchOrgInfo testScratchOrgInfo = createTestScratchOrgInfo(
+            'in_progress'
+        );
+        insert testScratchOrgInfo;
+
+        SfPoolSharingController.RecalculateSharingRequest request = new SfPoolSharingController.RecalculateSharingRequest();
+        request.scratchOrgInfoId = testScratchOrgInfo.Id;
+
+        Test.startTest();
+        SfPoolSharingController.recalculateSharingFromFlow(
+            new List<SfPoolSharingController.RecalculateSharingRequest>{
+                request
+            }
+        );
+        Test.stopTest();
+
+        Map<Id, String> access = shareAccessByGroup(testScratchOrgInfo.Id);
+        System.Assert.areEqual(
+            'Edit',
+            access.get(adminGroupId()),
+            'Admins should always have Edit.'
+        );
+        System.Assert.areEqual(
+            'Read',
+            access.get(poolGroupId()),
+            'Pool should have Read when in_progress.'
+        );
+        System.Assert.areEqual(
+            'Edit',
+            access.get(ciGroupId()),
+            'CI should have Edit when in_progress.'
+        );
+    }
+
+    @IsTest
+    private static void recalculateFromFlowIgnoresMissingRecordIds() {
+        Test.startTest();
+        SfPoolSharingController.recalculateSharingFromFlow(
+            new List<SfPoolSharingController.RecalculateSharingRequest>{
+                new SfPoolSharingController.RecalculateSharingRequest()
+            }
+        );
+        SfPoolSharingController.recalculateSharingFromFlow(null);
+        Test.stopTest();
+    }
+
     private static Map<Id, String> shareAccessByGroup(Id scratchOrgInfoId) {
         Map<Id, String> accessByGroup = new Map<Id, String>();
         for (ScratchOrgInfoShare share : [
