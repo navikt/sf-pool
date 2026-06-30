@@ -14,9 +14,12 @@ updates:
     cooldown:
       default-days: 7
     groups:
-      gha:
+      gha-minor-patch:
         patterns:
           - "*"
+        update-types:
+          - "minor"
+          - "patch"
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
