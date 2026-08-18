@@ -1,0 +1,23 @@
+name: Update mise Tools
+
+on:
+  schedule:
+    - cron: "30 8 * * 1-5"
+  workflow_dispatch:
+
+permissions: {}
+
+concurrency:
+  group: mise-tools-update-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update-mise-tools:
+    permissions:
+      contents: write
+      pull-requests: write
+    uses: navikt/crm-workflows-base/.github/workflows/mise-tools-update.yml@d4b10efa267a963efc5d0c9ce1188fdb461ed6fb
+    with:
+      PLATFORM_TOKEN_APP_ID: ${{ vars.PLATFORM_TOKEN_APP_ID }}
+    secrets:
+      PLATFORM_TOKEN_APP_PRIVATE_KEY: ${{ secrets.PLATFORM_TOKEN_APP_PRIVATE_KEY }}
