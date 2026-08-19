@@ -1,10 +1,16 @@
 {
   "packageDirectories": [
     {
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
       "path": "force-app",
-      "default": true
+      "package": "sf-pool",
+      "versionDescription": "Org dependent unlocked package for handling Scratch Pools together with the Sf Cli plugin @navikt/sf-cli-plugin-pool"
     }
   ],
+  "packageAliases": {
+    "sf-pool": "0HoQy0000001yBpKAI"
+  },
   "name": "sf-pool",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",

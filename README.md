@@ -40,9 +40,9 @@ printf 'System.debug(SfPoolHealthCheck.runHealthCheck());\n' > /tmp/sf-pool-heal
 sf apex run --target-org pool-host --file /tmp/sf-pool-health-check.apex
 ```
 
-### Option B: Consumer-owned unlocked package
+### Option B: Consumer-owned org-dependent unlocked package
 
-Use this model when you want package versioning. The package and all package versions are owned by the Dev Hub where you run `sf package create`. Keep using the same Dev Hub package lineage for upgrades.
+Use this model when you want package versioning. Teams hosting their own package must create it as an org-dependent unlocked package. The package and all package versions are owned by the Dev Hub where you run `sf package create`. Keep using the same Dev Hub package lineage for upgrades.
 
 ```sh
 sf org login web --alias consumer-devhub --set-default-dev-hub
@@ -56,7 +56,7 @@ sf package create \
 	--target-dev-hub consumer-devhub
 ```
 
-Create a package version from this source. Use an installation key instead of `--installation-key-bypass` if you need to restrict who can install the package.
+Create a package version from the `main` branch. Use an installation key instead of `--installation-key-bypass` if you need to restrict who can install the package.
 
 ```sh
 sf package version create \
@@ -67,6 +67,7 @@ sf package version create \
 	--version-name "sf-pool 0.1" \
 	--version-number 0.1.0.NEXT \
 	--version-description "Scratch org pool metadata" \
+	--branch main \
 	--wait 30 \
 	--target-dev-hub consumer-devhub
 ```
