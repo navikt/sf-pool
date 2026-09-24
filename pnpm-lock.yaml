@@ -14,7 +14,7 @@ importers:
     devDependencies:
       '@prettier/plugin-xml':
         specifier: 3.4.2
-        version: 3.4.2(prettier@3.9.6)
+        version: 3.4.2(prettier@3.9.7)
       husky:
         specifier: 9.1.7
         version: 9.1.7
@@ -22,11 +22,11 @@ importers:
         specifier: 17.5.1
         version: 17.5.1
       prettier:
-        specifier: 3.9.6
-        version: 3.9.6
+        specifier: 3.9.7
+        version: 3.9.7
       prettier-plugin-apex:
         specifier: 2.3.0
-        version: 2.3.0(prettier@3.9.6)
+        version: 2.3.0(prettier@3.9.7)
 
 packages:
 
@@ -232,8 +232,8 @@ packages:
     peerDependencies:
       prettier: ^3.0.0
 
-  prettier@3.9.6:
-    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
+  prettier@3.9.7:
+    resolution: {integrity: sha512-T3mF5P7HFzZVLDQuCUNtJj6WK1pcpLMweMNUVwGb01bLNkH9AkKxtZvmInw8K6bnn2O3d6/5RHl6zSHiBAD0Og==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -298,10 +298,10 @@ snapshots:
   '@prettier-apex/apex-ast-serializer-win32-x64@2.3.0':
     optional: true
 
-  '@prettier/plugin-xml@3.4.2(prettier@3.9.6)':
+  '@prettier/plugin-xml@3.4.2(prettier@3.9.7)':
     dependencies:
       '@xml-tools/parser': 1.0.11
-      prettier: 3.9.6
+      prettier: 3.9.7
 
   '@standard-schema/spec@1.1.0': {}
 
@@ -458,10 +458,10 @@ snapshots:
 
   picomatch@4.0.7: {}
 
-  prettier-plugin-apex@2.3.0(prettier@3.9.6):
+  prettier-plugin-apex@2.3.0(prettier@3.9.7):
     dependencies:
       jest-docblock: 30.4.0
-      prettier: 3.9.6
+      prettier: 3.9.7
       wait-on: 9.0.10
     optionalDependencies:
       '@prettier-apex/apex-ast-serializer-darwin-arm64': 2.3.0
@@ -472,7 +472,7 @@ snapshots:
       - debug
       - supports-color
 
-  prettier@3.9.6: {}
+  prettier@3.9.7: {}
 
   proxy-from-env@2.1.0: {}
 
